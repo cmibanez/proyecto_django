@@ -20,3 +20,4 @@ def crear_familiar (request, nombre):
             parentesco="Primo"
         )
         nuevo_familiar.save()
+    return render (request, "mi_primer_app/crear_familiar.html",{"nombre":nombre})
