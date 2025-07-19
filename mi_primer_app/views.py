@@ -1,7 +1,10 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 # Create your views here.
 
+def inicio(request):
+    return render(request,'mi_primer_app/inico.html')
 
 def saludo(request):
     return HttpResponse("Hola, mundo!")
@@ -20,4 +23,4 @@ def crear_familiar (request, nombre):
             parentesco="Primo"
         )
         nuevo_familiar.save()
-    return render (request, "mi_primer_app/crear_familiar.html",{"nombre":nombre})
+    return render (request, "mi_primer_app/templates/templates/crear_familiar.html", {"nombre": nombre})

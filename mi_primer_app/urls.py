@@ -1,10 +1,10 @@
+from django.urls import path # Correcta importación de 'path' desde Django
+from . import views         # Importa el módulo 'views' de tu propia aplicación
 
-from .views import path
-
-from .views import saludo, saludo_con_template, crear_familiar
-
-urlpatterns = [path ('Hola, mundo!',saludo),
-               path('Hola, mundo!-template/',saludo_con_template),
-               path ('crear-familiar/<str:nombre>',crear_familiar),
+urlpatterns = [
+    path('', views.inicio, name='inicio'),
+    path ("Hola, mundo!",views.saludo),
+    path('Hola, mundo!-template/',views.saludo_con_template),
+    path ('crear-familiar/<str:nombre>',views.crear_familiar),
                
                ]
