@@ -2,12 +2,27 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi primera página web</title>
+    <title>{% block title %} Inicio - Mi Sitio Web {% endblock %}</title>
 </head>
-<body>
-    <h1>Hola, mundo!</h1>
-    <p>Este es un párrafo de ejemplo en mi página web.</p>
+<body style="margin: 0; font-family: Arial, sans-serif; background: #f2f2f2; color: #333;">
+
+    <!-- Encabezado -->
+    <header style="background-color: #4CAF50; padding: 20px; text-align: center; color: white;">
+        <h1 style="margin: 0;">Hola Mundo</h1>
+        <p style="margin: 5px 0;">Tu lugar para aprender y descubrir</p>
+    </header>
+
+    <!-- Contenido principal -->
+    <main style="padding: 40px; text-align: center;">
+        <h2 style="color: #4CAF50;">¿Qué ofrecemos?</h2>
+        <p style="max-width: 600px; margin: 0 auto 30px;">
+            En nuestro sitio encontrarás recursos educativos, noticias de tecnología y herramientas útiles para tu día a día.
+        </p>
+        <a href="#servicios" style="display: inline-block; padding: 10px 30px; background-color: #4CAF50; color: white; text-decoration: none; border-radius: 5px;">Ver servicios</a>
+    </main>
+
+    {% block header %}{% endblock %}
+
 </body>
 </html>
 
