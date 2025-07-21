@@ -9,10 +9,16 @@ class Familiar(models.Model): # Clases van con mayúscula inicial por convenció
     edad = models.IntegerField()
     fecha_nacimiento = models.DateField()
 
-    def __str__(self): # CORREGIDO: espacio entre def y __str__
-        # Asegúrate de que esta línea sea válida, si self.apellido no existe, bórralo.
-        # Además, self,apellido tiene una coma en vez de un punto.
-        # Corregí para que la f-string sea más legible y correcta.
+    def __str__(self):
          return f"{self.nombre} {self.apellido} ({self.parentesco}) - Edad: {self.edad}, Nacido el: {self.fecha_nacimiento}"
     
 
+class Curso(models.Model):
+    nombre = models.CharField(max_length=100)
+    descripcion = models.TextField(blank=True, null=True)
+    duracion_semanas = models.IntegerField(default=4)
+    fecha_inicio = models.DateField()
+    activo = models.BooleanField(default=True)
+
+    def _str_(self):
+        return self.nombre

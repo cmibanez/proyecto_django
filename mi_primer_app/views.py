@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Familiar
 
+from .forms import CursoForm
+
 # Create your views here.
 
 def inicio(request):    return render(request,'mi_primer_app/templates/inicio.html')
@@ -24,3 +26,11 @@ def crear_familiar (request, nombre):
         )
         nuevo_familiar.save()
     return render (request, 'mi_primer_app/templates/crear_familiar.html', {"nombre": nombre})
+
+def crear_curso(request):
+    if request.method == "POST":
+        form = CursoForm(request.POST)
+        if form.is_valid():
+            # Procesar el formulario y guardar el curso
+            form.save()
+        return render(request, "mi_primer_app/curso_creado.html", {"form": form})
